@@ -11,12 +11,13 @@ API Course, Lesson 1 -->
    <link rel="stylesheet" href="style.css">
 
    <script src="app.js"></script>
+   <script src="js\markers.js"></script>
    <script src="libraries\knockout.min.js"></script>
    <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
    <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDxfrjae1sJZK-f4OO2jPgcLv3qcbDMus&v=3&callback=initMap">
    </script>
-   
+
  </head>
 
 
@@ -27,6 +28,7 @@ API Course, Lesson 1 -->
        <div>
          <input id="show-sites" type="button" value="Show Sites">
          <input id="hide-sites" type="button" value="Hide Sites">
+         <input type="text" id="search-input" placeholder="Search location..." name="q" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'">
        </div>
      </div>
    <div id="map"></div>
