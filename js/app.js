@@ -1,5 +1,6 @@
 // TODO: Create a map variable
 var map;
+var bounds;
 
 var markers = [];
 // TODO: Complete the following function to initialize the map
@@ -9,15 +10,9 @@ function initMap() {
     center: {lat: 34.101331, lng: -84.519381},
     zoom: 17
   });
-  var locations = [
-    {title: 'Bob the Turkey', location: {lat: 34.099842, lng: -84.519943}},
-    {title: 'Pie Bar', location: {lat: 34.099400, lng: -84.520342}},
-    {title: 'Copper Coin', location: {lat: 34.099661, lng: -84.518967}},
-    {title: 'Elm Street Arts Theater', location: {lat: 34.101792, lng: -84.519891}},
-    {title: 'Woodstock Events Green', location: {lat: 34.100189, lng: -84.521686}},
-  ];
 
-  var largeInfowindo = new google.maps.InfoWindow();
+
+  var infowindow = new google.maps.InfoWindow();
 
   // The following group uses the location array to create an array of markers on initialize
   for (var i = 0; i < locations.length; i++) {
@@ -34,10 +29,11 @@ function initMap() {
     //Push the marker to our array of markers
     markers.push(marker);
     //Create an onclick event to open an infowindow at each marker
-    marker.addListener('click', function(){
-      populateInfoWindow(this, largeInfowindo);
+    marker.addListener('click', function() {
+      populateInfoWindow(this, self.title, infoWindow);
     });
   }
+
 
   //this enables the Show Sites button to display the markers
   function showSites() {
@@ -60,8 +56,8 @@ function initMap() {
   document.getElementById('show-sites').addEventListener('click', showSites);
   document.getElementById('hide-sites').addEventListener('click', hideSites);
 
-
-/*  var bob_the_turkey ={lat: 34.099842, lng:  -84.519943}
+/*
+  var bob_the_turkey ={lat: 34.099842, lng:  -84.519943}
   var marker = new google.maps.Marker({
     position: bob_the_turkey,
     map: map,
@@ -72,5 +68,5 @@ function initMap() {
   });
   marker.addListener('click', function(){
     infowindow.open(map, marker);
-  }); */
-};
+  });*/
+}

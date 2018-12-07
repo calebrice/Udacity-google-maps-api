@@ -10,9 +10,9 @@ API Course, Lesson 1 -->
    </style>
    <link rel="stylesheet" href="style.css">
 
-   <script src="app.js"></script>
+   <script src="js\app.js"></script>
    <script src="js\markers.js"></script>
-   <script src="libraries\knockout.min.js"></script>
+   <script src="js\libraries\knockout.min.js"></script>
    <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
    <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDxfrjae1sJZK-f4OO2jPgcLv3qcbDMus&v=3&callback=initMap">
@@ -31,6 +31,13 @@ API Course, Lesson 1 -->
          <input type="text" id="search-input" placeholder="Search location..." name="q" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'">
        </div>
      </div>
+
+     <div id="nav-list" data-bind="css: { searching: searchItem }">
+       <div id="list" data-bind="foreach: locationList">
+         <div id="item-container"><a href="#" id="list-item" data-bind="text: title, click: show"></a></div>
+       </div>
+     </div>
+
    <div id="map"></div>
  </body>
 
